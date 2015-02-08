@@ -8,7 +8,6 @@ exports.Model = iotdb.make_model('SmartThingsContact')
     .make();
 
 exports.binding = {
-    name: "SmartThingsContact",
     model: exports.Model,
     matchd: {
         'iot:vendor/type': 'contact',

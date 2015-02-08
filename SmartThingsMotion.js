@@ -18,7 +18,6 @@ exports.Model = iotdb.make_model('SmartThingsMotion')
     .make();
 
 exports.binding = {
-    name: "SmartThingsMotion",
     model: exports.Model,
     matchd: {
         'iot:vendor/device': 'motion',

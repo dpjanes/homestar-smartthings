@@ -21,7 +21,6 @@ exports.Model = iotdb.make_model('SmartThingsThreeAxis')
     .make();
 
 exports.binding = {
-    name: "SmartThingsThreeAxis",
     model: exports.Model,
     matchd: {
         'iot:vendor/type': 'threeAxis',

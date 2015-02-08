@@ -19,7 +19,6 @@ exports.Model = iotdb.make_model('SmartThingsBattery')
     .make();
 
 exports.binding = {
-    name: "SmartThingsBattery",
     model: exports.Model,
     connectd: {
         data_in: function(paramd) {

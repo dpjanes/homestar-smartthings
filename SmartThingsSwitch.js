@@ -18,7 +18,6 @@ exports.Model = iotdb.make_model('SmartThingsSwitch')
     .make();
 
 exports.binding = {
-    name: "SmartThingsSwitch",
     model: exports.Model,
     matchd: {
         'iot:vendor/type': 'switch',
