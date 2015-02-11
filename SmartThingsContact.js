@@ -9,6 +9,10 @@ exports.Model = iotdb.make_model('SmartThingsContact')
 
 exports.binding = {
     model: exports.Model,
+    bridge: require('./SmartThingsBridge').Bridge,
+    initd: {
+        device: 'contact',
+    },
     matchd: {
         'iot:vendor/type': 'contact',
     },

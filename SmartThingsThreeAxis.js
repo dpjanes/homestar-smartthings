@@ -22,6 +22,10 @@ exports.Model = iotdb.make_model('SmartThingsThreeAxis')
 
 exports.binding = {
     model: exports.Model,
+    bridge: require('./SmartThingsBridge').Bridge,
+    initd: {
+        device: 'threeAxis',
+    },
     matchd: {
         'iot:vendor/type': 'threeAxis',
     },

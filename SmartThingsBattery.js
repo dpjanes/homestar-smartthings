@@ -20,6 +20,13 @@ exports.Model = iotdb.make_model('SmartThingsBattery')
 
 exports.binding = {
     model: exports.Model,
+    bridge: require('./SmartThingsBridge').Bridge,
+    initd: {
+        device: 'battery',
+    },
+    matchd: {
+        'iot:vendor/device': 'battery',
+    },
     connectd: {
         data_in: function(paramd) {
             if (paramd.rawd.battery) {

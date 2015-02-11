@@ -19,6 +19,10 @@ exports.Model = iotdb.make_model('SmartThingsMotion')
 
 exports.binding = {
     model: exports.Model,
+    bridge: require('./SmartThingsBridge').Bridge,
+    initd: {
+        device: 'motion',
+    },
     matchd: {
         'iot:vendor/device': 'motion',
     },
