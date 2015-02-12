@@ -22,10 +22,10 @@
 
 "use strict";
 
-var iotdb = require('iotdb')
-var _ = iotdb.helpers;
+var homestar = require('homestar')
+var _ = homestar._;
 
-var smartthings = require('iotdb-smartthings');
+var smartthings = require('homestar-smartthings');
 
 var bunyan = require('bunyan');
 var logger = bunyan.createLogger({
@@ -263,7 +263,7 @@ SmartThingsBridge.prototype._st = function() {
     var self = this;
 
     if (__st === undefined) {
-        var cfgd = iotdb.iot().cfg_get("bridges/SmartThingsBridge");
+        var cfgd = homestar.iot().cfg_get("bridges/SmartThingsBridge");
         if (!cfgd) {
             logger.error({
                 method: "_st",

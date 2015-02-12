@@ -11,11 +11,11 @@
 
 "use strict";
 
-var iotdb = require("iotdb")
+var homestar = require("homestar")
 
-exports.Model = iotdb.make_model('SmartThingsBattery')
+exports.Model = homestar.make_model('SmartThingsBattery')
     .facet(":sensor.battery")
-    .i("battery", iotdb.sensor.percent.battery)
+    .i("battery", homestar.sensor.percent.battery)
     .make();
 
 exports.binding = {

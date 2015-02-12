@@ -10,11 +10,11 @@
 
 "use strict";
 
-var iotdb = require("iotdb")
+var homestar = require("homestar")
 
-exports.Model = iotdb.make_model('SmartThingsSwitch')
+exports.Model = homestar.make_model('SmartThingsSwitch')
     .facet(":switch")
-    .o("on", iotdb.boolean.on)
+    .o("on", homestar.boolean.on)
     .make();
 
 exports.binding = {
