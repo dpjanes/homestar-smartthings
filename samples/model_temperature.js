@@ -4,7 +4,6 @@
 
 var homestar = require("homestar");
 var _ = homestar._;
-var _compact = homestar.helpers.ld.compact
 
 var ModelBinding = require('../SmartThingsTemperature');
 

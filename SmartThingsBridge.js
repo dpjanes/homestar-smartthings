@@ -25,7 +25,7 @@
 var homestar = require('homestar')
 var _ = homestar._;
 
-var smartthings = require('homestar-smartthings');
+var smartthings = require('iotdb-smartthings');
 
 var bunyan = require('bunyan');
 var logger = bunyan.createLogger({
