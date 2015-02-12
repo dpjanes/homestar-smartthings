@@ -2,20 +2,21 @@
  *  Use a Model to manipulate semantically
  */
 
-var iotdb = require("iotdb");
+var homestar = require("homestar");
+var _ = homestar._;
 
 var ModelBinding = require('../SmartThingsSwitch');
 
-wrapper = iotdb.bridge_wrapper(ModelBinding.binding);
+wrapper = _.bridge_wrapper(ModelBinding.binding);
 wrapper.on('model', function(model) {
     model.on_change(function(model) {
         console.log("+ state\n ", model.thing_id(), model.state());
     });
     model.on_meta(function(model) {
-        console.log("+ meta\n ", model.thing_id(), model.meta().state());
+        console.log("+ meta\n ", model.thing_id(), _.ld.compact(model.meta().state()));
     });
     
-    console.log("+ discovered\n ", model.meta().state(), "\n ", model.thing_id());
+    console.log("+ discovered\n ", _.ld.compact(model.meta().state()), "\n ", model.thing_id());
 
         
     var on = false;
@@ -31,5 +32,5 @@ wrapper.on('model', function(model) {
     }, 2500);
 })
 wrapper.on('ignored', function(bridge) {
-    console.log("+ ignored\n ", bridge.meta());
+    console.log("+ ignored\n ", _.ld.compact(bridge.meta()));
 });
