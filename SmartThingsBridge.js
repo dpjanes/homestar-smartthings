@@ -24,10 +24,10 @@
 
 var homestar = require('homestar')
 var _ = homestar._;
+var bunyan = homestar.bunyan;
 
 var smartthings = require('iotdb-smartthings');
 
-var bunyan = require('bunyan');
 var logger = bunyan.createLogger({
     name: 'homestar-smart-things',
     module: 'SmartThingsBridge',
