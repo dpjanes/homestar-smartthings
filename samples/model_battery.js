@@ -3,8 +3,8 @@
  *  SOMETHING WRONG WITH THIS - getting 500 error from SmartThings
  */
 
-var homestar = require("homestar");
-var _ = homestar._;
+var iotdb = require("iotdb");
+var _ = iotdb._;
 
 var ModelBinding = require('../SmartThingsBattery');
 
