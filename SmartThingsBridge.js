@@ -22,9 +22,9 @@
 
 "use strict";
 
-var homestar = require('homestar')
-var _ = homestar._;
-var bunyan = homestar.bunyan;
+var iotdb = require('iotdb');
+var _ = iotdb._;
+var bunyan = iotdb.bunyan;
 
 var smartthings = require('iotdb-smartthings');
 
@@ -36,7 +36,7 @@ var logger = bunyan.createLogger({
 /**
  *  EXEMPLAR and INSTANCE
  *  <p>
- *  No subclassing needed! The following functions are 
+ *  No subclassing needed! The following functions are
  *  injected _after_ this is created, and before .discover and .connect
  *  <ul>
  *  <li><code>discovered</code> - tell IOTDB that we're talking to a new Thing
@@ -45,7 +45,7 @@ var logger = bunyan.createLogger({
  *  <li><code>disconnnected</code> - this has been disconnected from a Thing
  *  </ul>
  */
-var SmartThingsBridge = function(initd, native) {
+var SmartThingsBridge = function (initd, native) {
     var self = this;
 
     self.initd = _.defaults(initd, {
@@ -59,7 +59,7 @@ var SmartThingsBridge = function(initd, native) {
 /* --- lifecycle --- */
 
 /**
- *  EXEMPLAR. 
+ *  EXEMPLAR.
  *  Discover WeMo Socket
  *  <ul>
  *  <li>look for Things (using <code>self.bridge</code> data to initialize)
@@ -67,7 +67,7 @@ var SmartThingsBridge = function(initd, native) {
  *  <li>create an SmartThingsBridge(native)
  *  <li>call <code>self.discovered(bridge)</code> with it
  */
-SmartThingsBridge.prototype.discover = function() {
+SmartThingsBridge.prototype.discover = function () {
     var self = this;
 
     var st = self._st();
@@ -78,17 +78,17 @@ SmartThingsBridge.prototype.discover = function() {
         return;
     }
 
-    st.on("endpoint", function() {
+    st.on("endpoint", function () {
         var device_types = smartthings.device_types;
         if (self.initd.device) {
-            device_types = [ self.initd.device ];
+            device_types = [self.initd.device];
         }
 
         for (var dti in device_types) {
             st.request_devices(device_types[dti]);
         }
-    })
-    st.on("devices", function(device_type, devices) {
+    });
+    st.on("devices", function (device_type, devices) {
         for (var di in devices) {
             self.discovered(new SmartThingsBridge(self.initd, devices[di]));
         }
@@ -101,7 +101,7 @@ SmartThingsBridge.prototype.discover = function() {
  *  INSTANCE
  *  This is called when the Bridge is no longer needed. When
  */
-SmartThingsBridge.prototype.connect = function(connectd) {
+SmartThingsBridge.prototype.connect = function (connectd) {
     var self = this;
     if (!self.native) {
         return;
@@ -114,7 +114,7 @@ SmartThingsBridge.prototype.connect = function(connectd) {
     }
 };
 
-SmartThingsBridge.prototype._forget = function() {
+SmartThingsBridge.prototype._forget = function () {
     var self = this;
     if (!self.native) {
         return;
@@ -126,13 +126,13 @@ SmartThingsBridge.prototype._forget = function() {
 
     self.native = null;
     self.pulled();
-}
+};
 
 /**
- *  INSTANCE and EXEMPLAR (during shutdown). 
+ *  INSTANCE and EXEMPLAR (during shutdown).
  *  This is called when the Bridge is no longer needed. When
  */
-SmartThingsBridge.prototype.disconnect = function() {
+SmartThingsBridge.prototype.disconnect = function () {
     var self = this;
     if (!self.native || !self.native) {
         return;
@@ -145,7 +145,7 @@ SmartThingsBridge.prototype.disconnect = function() {
  *  INSTANCE.
  *  Send data to whatever you're taking to.
  */
-SmartThingsBridge.prototype.push = function(pushd) {
+SmartThingsBridge.prototype.push = function (pushd) {
     var self = this;
     if (!self.native) {
         return;
@@ -164,7 +164,6 @@ SmartThingsBridge.prototype.push = function(pushd) {
         };
         self.connectd.data_out(paramd);
         self._st().device_request(self.native, paramd.rawd);
-        console.log(paramd.rawd)
     } else {
         self._st().device_request(self.native, pushd);
     }
@@ -175,14 +174,14 @@ SmartThingsBridge.prototype.push = function(pushd) {
  *  Pull data from whatever we're talking to. You don't
  *  have to implement this if it doesn't make sense
  */
-SmartThingsBridge.prototype.pull = function() {
+SmartThingsBridge.prototype.pull = function () {
     var self = this;
     if (!self.native) {
         return;
     }
 };
 
-SmartThingsBridge.prototype._pulled = function(rawd) {
+SmartThingsBridge.prototype._pulled = function (rawd) {
     var self = this;
 
     if (self.connectd.data_in) {
@@ -195,7 +194,7 @@ SmartThingsBridge.prototype._pulled = function(rawd) {
     } else {
         self.pulled(rawd);
     }
-}
+};
 
 /* --- state --- */
 
@@ -213,7 +212,7 @@ SmartThingsBridge.prototype._pulled = function(rawd) {
  *  <li><code>schema:manufacturer</code>
  *  <li><code>schema:model</code>
  */
-SmartThingsBridge.prototype.meta = function() {
+SmartThingsBridge.prototype.meta = function () {
     var self = this;
     if (!self.native) {
         return;
@@ -229,46 +228,44 @@ SmartThingsBridge.prototype.meta = function() {
 
 /**
  *  INSTANCE.
- *  Return True if this is reachable. You 
+ *  Return True if this is reachable. You
  *  do not need to worry about connect / disconnect /
  *  shutdown states, they will be always checked first.
  */
-SmartThingsBridge.prototype.reachable = function() {
+SmartThingsBridge.prototype.reachable = function () {
     return this.native !== null;
 };
 
 /**
  *  INSTANCE.
  *  Configure an express web page to configure this Bridge.
- *  Return the name of the Bridge, which may be 
+ *  Return the name of the Bridge, which may be
  *  listed and displayed to the user.
  *
  *  XXX - this needs configuring
  */
-SmartThingsBridge.prototype.configure = function(app) {
-};
+SmartThingsBridge.prototype.configure = function (app) {};
 
 /* --- injected: THIS CODE WILL BE REMOVED AT RUNTIME, DO NOT MODIFY  --- */
-SmartThingsBridge.prototype.discovered = function(bridge) {
+SmartThingsBridge.prototype.discovered = function (bridge) {
     throw new Error("SmartThingsBridge.discovered not implemented");
 };
 
-SmartThingsBridge.prototype.pulled = function(pulld) {
+SmartThingsBridge.prototype.pulled = function (pulld) {
     throw new Error("SmartThingsBridge.pulled not implemented");
 };
 
 /* --- internals --- */
 var __st;
 
-SmartThingsBridge.prototype._st = function() {
+SmartThingsBridge.prototype._st = function () {
     var self = this;
 
     if (__st === undefined) {
-        var cfgd = homestar.iot().cfg_get("bridges/SmartThingsBridge");
+        var cfgd = iotdb.keystore().get("bridges/SmartThingsBridge");
         if (!cfgd) {
             logger.error({
                 method: "_st",
-                device: native.deviceType
             }, "SmartThings is not configured");
             __st = null;
         } else {
@@ -278,7 +275,7 @@ SmartThingsBridge.prototype._st = function() {
     }
 
     return __st;
-}
+};
 
 /*
  *  API

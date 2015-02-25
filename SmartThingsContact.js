@@ -1,10 +1,10 @@
 "use strict";
 
-var homestar = require("homestar")
+var iotdb = require("iotdb");
 
-exports.Model = homestar.make_model('SmartThingsContact')
+exports.Model = iotdb.make_model('SmartThingsContact')
     .facet(":sensor.contact")
-    .i("open", homestar.sensor.boolean.open)
+    .i("open", iotdb.sensor.boolean.open)
     .make();
 
 exports.binding = {
@@ -17,9 +17,9 @@ exports.binding = {
         'iot:vendor/type': 'contact',
     },
     connectd: {
-        data_in: function(paramd) {
+        data_in: function (paramd) {
             if (paramd.rawd.contact !== undefined) {
-                paramd.cookd.open = paramd.rawd.contact ? false : true
+                paramd.cookd.open = paramd.rawd.contact ? false : true;
             }
         },
     },

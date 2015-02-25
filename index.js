@@ -23,7 +23,6 @@
 "use strict";
 
 exports.Bridge = require('./SmartThingsBridge').Bridge;
-
 exports.bindings = [
     require('./SmartThingsBattery').binding,
     require('./SmartThingsBridge').binding,
@@ -33,3 +32,8 @@ exports.bindings = [
     require('./SmartThingsTemperature').binding,
     require('./SmartThingsThreeAxis').binding,
 ];
+
+exports.iotdb = require("iotdb");
+exports.wrap = function (name, initd) {
+    return exports.iotdb.make_wrap(name, exports.bindings, initd);
+};

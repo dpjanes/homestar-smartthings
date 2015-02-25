@@ -11,11 +11,11 @@
 
 "use strict";
 
-var homestar = require("homestar")
+var iotdb = require("iotdb");
 
-exports.Model = homestar.make_model('SmartThingsBattery')
+exports.Model = iotdb.make_model('SmartThingsBattery')
     .facet(":sensor.battery")
-    .i("battery", homestar.sensor.percent.battery)
+    .i("battery", iotdb.sensor.percent.battery)
     .make();
 
 exports.binding = {
@@ -28,9 +28,9 @@ exports.binding = {
         'iot:vendor/device': 'battery',
     },
     connectd: {
-        data_in: function(paramd) {
+        data_in: function (paramd) {
             if (paramd.rawd.battery) {
-                paramd.cookd.battery = paramd.rawd.battery * 100
+                paramd.cookd.battery = paramd.rawd.battery * 100;
             }
         },
     },

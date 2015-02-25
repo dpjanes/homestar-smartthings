@@ -10,11 +10,11 @@
 
 "use strict";
 
-var homestar = require("homestar")
+var iotdb = require("iotdb");
 
-exports.Model = homestar.make_model('SmartThingsSwitch')
+exports.Model = iotdb.make_model('SmartThingsSwitch')
     .facet(":switch")
-    .o("on", homestar.boolean.on)
+    .o("on", iotdb.boolean.on)
     .make();
 
 exports.binding = {
@@ -27,14 +27,14 @@ exports.binding = {
         'iot:vendor/type': 'switch',
     },
     connectd: {
-        data_in: function(paramd) {
+        data_in: function (paramd) {
             if (paramd.rawd['switch'] !== undefined) {
-                paramd.cookd['on'] = paramd.rawd['switch']
+                paramd.cookd['on'] = paramd.rawd['switch'];
             }
         },
-        data_out: function(paramd) {
+        data_out: function (paramd) {
             if (paramd.cookd.on !== undefined) {
-                paramd.rawd['switch'] = paramd.cookd.on ? 1 : 0
+                paramd.rawd['switch'] = paramd.cookd.on ? 1 : 0;
             }
         },
     },

@@ -10,11 +10,11 @@
 
 "use strict";
 
-var homestar = require("homestar")
+var iotdb = require("iotdb");
 
-exports.Model = homestar.make_model('SmartThingsMotion')
+exports.Model = iotdb.make_model('SmartThingsMotion')
     .facet(":sensor.motion")
-    .i("open", homestar.sensor.boolean.motion)
+    .i("open", iotdb.sensor.boolean.motion)
     .make();
 
 exports.binding = {
