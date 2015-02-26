@@ -1,12 +1,12 @@
 {
     "author": "David P. Janes <davidjanes@iotdb.org> (https://iotdb.org)", 
     "bugs": {
-        "url": "https://github.com/dpjanes/homestar-smart-things/issues"
+        "url": "https://github.com/dpjanes/homestar-smartthings/issues"
     }, 
     "dependencies": {
-        "iotdb": ">=0.0.48",
-        "iotdb-mqtt": "",
-        "iotdb-smartthings": ""
+        "iotdb": ">=0.5.1", 
+        "iotdb-mqtt": ">=0.0.4", 
+        "iotdb-smartthings": ">=0.0.6"
     }, 
     "description": "HomeStar / IOTDB Bridge for SmartThings", 
     "devDependencies": {
@@ -24,14 +24,14 @@
     "homestar": {}, 
     "license": "Apache-2.0", 
     "main": "index.js", 
-    "name": "homestar-smart-things", 
+    "name": "homestar-smartthings", 
     "private": false, 
     "repository": {
         "type": "git", 
-        "url": "https://github.com/dpjanes/homestar-smart-things"
+        "url": "https://github.com/dpjanes/homestar-smartthings"
     }, 
     "scripts": {
         "test": "grunt"
     }, 
-    "version": "0.0.0"
+    "version": "0.0.2"
 }

@@ -6,7 +6,7 @@
 #   2015-02-10
 #
 
-PACKAGE=iotdb-smartthings
+PACKAGE=homestar-smartthings
 DIST_ROOT=/var/tmp/.dist.$$
 
 if [ ! -d "$DIST_ROOT" ]
@@ -31,9 +31,10 @@ echo "=================="
 
     tar cf - \
         README.md \
-        LICENSE.txt \
-        package.json smartthings.js smartthingslib.js \
-        |
+        LICENSE \
+        package.json \
+        index.js \
+        Smart*js |
     ( cd "${NPM_DST}" && tar xvf - )
 
     ## cp dist/*.* "${NPM_DST}" || exit 1
