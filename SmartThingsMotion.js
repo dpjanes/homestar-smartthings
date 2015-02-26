@@ -14,7 +14,7 @@ var iotdb = require("iotdb");
 
 exports.Model = iotdb.make_model('SmartThingsMotion')
     .facet(":sensor.motion")
-    .i("open", iotdb.sensor.boolean.motion)
+    .i("motion", iotdb.sensor.boolean.motion)
     .make();
 
 exports.binding = {

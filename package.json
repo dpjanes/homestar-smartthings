@@ -4,7 +4,9 @@
         "url": "https://github.com/dpjanes/homestar-smart-things/issues"
     }, 
     "dependencies": {
-        "iotdb": ">=0.0.48"
+        "iotdb": ">=0.0.48",
+        "iotdb-mqtt": "",
+        "iotdb-smartthings": ""
     }, 
     "description": "HomeStar / IOTDB Bridge for SmartThings", 
     "devDependencies": {

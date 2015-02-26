@@ -26,6 +26,7 @@ var iotdb = require('iotdb');
 var _ = iotdb._;
 var bunyan = iotdb.bunyan;
 
+var url = require('url');
 var smartthings = require('iotdb-smartthings');
 
 var logger = bunyan.createLogger({
@@ -48,10 +49,14 @@ var logger = bunyan.createLogger({
 var SmartThingsBridge = function (initd, native) {
     var self = this;
 
-    self.initd = _.defaults(initd, {
-        name: null,
-        device: null,
-    });
+    self.initd = _.defaults(initd,
+        iotdb.keystore().get("bridges/SmartThingsBridge/initd"), {
+            mqtt: true,
+            poll: 5 * 60,
+            name: null,
+            device: null,
+        }
+    );
     self.native = native;
     self.connectd = {};
 };
@@ -112,6 +117,48 @@ SmartThingsBridge.prototype.connect = function (connectd) {
     if (self.native.value) {
         self._pulled(self.native.value);
     }
+
+    if (self.initd.mqtt && self.native.mqtt) {
+        self._setup_mqtt();
+    }
+    if (self.initd.poll > 0) {
+        self._setup_polling();
+    }
+};
+
+SmartThingsBridge.prototype._setup_polling = function () {
+    var self = this;
+
+    var timer = setInterval(function () {
+        if (!self.native) {
+            clearInterval(timer);
+            return;
+        }
+
+        self.pull();
+    }, self.initd.poll * 1000);
+};
+
+SmartThingsBridge.prototype._setup_mqtt = function () {
+    var self = this;
+
+    var mqtt;
+    try {
+        mqtt = iotdb.mqtt();
+    } catch (x) {
+        logger.error({
+            method: "_setup_mqtt",
+            cause: "likely not installed - try 'homestar install iotdb-mqtt'",
+        }, "MQTT not available");
+        return;
+    }
+
+    self._mqtt_client = mqtt.connect(self.native.mqtt);
+    self._mqtt_client.subscribe(url.parse(self.native.mqtt).pathname.replace(/\/*/, ''));
+    self._mqtt_client.on('message', function (topic, message) {
+        message = message.toString();
+        self._pulled(JSON.parse(message));
+    });
 };
 
 SmartThingsBridge.prototype._forget = function () {
@@ -123,6 +170,11 @@ SmartThingsBridge.prototype._forget = function () {
     logger.info({
         method: "_forget"
     }, "called");
+
+    if (self._mqtt_client) {
+        self._mqtt_client.end();
+        self._mqtt_client = null;
+    }
 
     self.native = null;
     self.pulled();
@@ -137,6 +189,8 @@ SmartThingsBridge.prototype.disconnect = function () {
     if (!self.native || !self.native) {
         return;
     }
+
+    self._forget();
 };
 
 /* --- data --- */
@@ -179,6 +233,19 @@ SmartThingsBridge.prototype.pull = function () {
     if (!self.native) {
         return;
     }
+
+    self._st().device_poll(self.native, function (error, _deviced, _stated) {
+        logger.info({
+            method: "_pull",
+            error: error,
+            device: self.native,
+            stated: _stated,
+        }, "pulled");
+
+        if (_stated && _stated.value) {
+            self._pulled(_stated.value);
+        }
+    });
 };
 
 SmartThingsBridge.prototype._pulled = function (rawd) {

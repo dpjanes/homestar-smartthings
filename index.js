@@ -22,6 +22,8 @@
 
 "use strict";
 
+exports.iotdb_module = true;
+
 exports.Bridge = require('./SmartThingsBridge').Bridge;
 exports.bindings = [
     require('./SmartThingsBattery').binding,
