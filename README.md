@@ -6,13 +6,18 @@ See <a href="samples/">the samples</a> for details how to add to your project.
 particularly <code>model.js</code> for "standalone" and <code>iotdb.js</code>
 for use in IOTDB / HomeStar projects.
 
+**Note**: inherently this is complicated, as you'll have to add
+a new app to SmartThings. If you're not comfortable with 
+progamming-like things, please ask for help from someone who is.
+
 # Quick Start
 
 Turn a SmartThings switch off
 
-	$ npm install -g homestar
+	$ npm install -g homestar ## with 'sudo' if error
 	$ npm install iotdb
-	$ homestar install homestar-wemo
+	$ homestar install homestar-smart-things
+    $ homestar configure homestar-smart-things
 	$ node
 	>>> iotdb = require('iotdb')
 	>>> iot = iotdb.iot()

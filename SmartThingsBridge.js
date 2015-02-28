@@ -26,8 +26,11 @@ var iotdb = require('iotdb');
 var _ = iotdb._;
 var bunyan = iotdb.bunyan;
 
+var path = require('path');
 var url = require('url');
 var smartthings = require('iotdb-smartthings');
+
+var body_parser = require('body-parser');
 
 var logger = bunyan.createLogger({
     name: 'homestar-smart-things',
@@ -144,7 +147,7 @@ SmartThingsBridge.prototype._setup_mqtt = function () {
 
     var mqtt;
     try {
-        mqtt = iotdb.mqtt();
+        mqtt = iotdb.module("iotdb-mqtt");
     } catch (x) {
         logger.error({
             method: "_setup_mqtt",
@@ -311,7 +314,49 @@ SmartThingsBridge.prototype.reachable = function () {
  *
  *  XXX - this needs configuring
  */
-SmartThingsBridge.prototype.configure = function (app) {};
+SmartThingsBridge.prototype.configure = function (app) {
+    var self = this;
+
+    app.use('/$', body_parser.urlencoded({     
+        extended: true
+    })); 
+    app.all('/$', function (request, response) {
+        self._configure_index(request, response);
+    });
+
+    return "SmartThings";
+};
+
+SmartThingsBridge.prototype._configure_index = function (request, response) {
+    var self = this;
+
+    var account_key = "/bridges/SmartThings/access";
+    var account_value = iotdb.keystore().get(account_key);
+
+    var template = path.join(__dirname, "templates", "index.html");
+    var templated = {
+        account: account_value
+    };
+
+    if (request.method === "POST") {
+        if (request.body && request.body.json) {
+            try {
+                account_value = JSON.parse(request.body.json);
+                iotdb.keystore().save(account_key, account_value);
+                templated.success = "SmartThings configuration saved - enjoy!";
+            } catch (x) {
+                templated.error = "" + x;
+            }
+        } else {
+            templated.error = "No request?";
+        }
+    }
+
+    response
+        .set('Content-Type', 'text/html')
+        .render(template, templated);
+};
+
 
 /* --- injected: THIS CODE WILL BE REMOVED AT RUNTIME, DO NOT MODIFY  --- */
 SmartThingsBridge.prototype.discovered = function (bridge) {

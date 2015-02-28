@@ -32,7 +32,7 @@ echo "=================="
     tar cf - \
         README.md \
         LICENSE \
-        package.json \
+        homestar.json package.json \
         index.js \
         Smart*js |
     ( cd "${NPM_DST}" && tar xvf - )

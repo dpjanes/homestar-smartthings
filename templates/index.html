@@ -1,0 +1,125 @@
+{% extends "template" %}
+{% block content %}
+<h1>SmartThings</h1>
+
+<h3 id="toc_0">Important Notes</h3>
+
+{% if success %}
+<p class="alert alert-success" role="alert">
+<b>Your SmartThings configuration has been saved.</b>
+</p>
+{% else %}
+    {% if account %}
+    <p class="alert alert-success" role="alert">
+    <b>Your SmartThings appears to be already configured.</b>
+    </p>
+    {% endif %}
+{% endif %}
+{% if error %}
+<p class="alert alert-danger" role="alert">
+{{ error }}
+</p>
+{% endif %}
+
+<p class="alert alert-info" role="alert">
+This is somewhat developer-y. Get help if you need it.
+There are a lot of steps.
+Ask us for help if you need it.
+</p>
+
+<p class="alert alert-danger" role="alert">
+The SmartThings code broadcasts everything you do
+to MQTT. It&#39;s anonymous enough but you may find it
+creepy. You cannot <em>control</em> other people&#39;s things using MQTT.</p>
+
+<h3>Part 1: Setup</h3>
+<ol>
+    <li>
+        <a target="iotdb" href="https://iotdb.org/sign/up" />Create an IOTDB user account</a>
+    </li>
+    <li>
+        <a target="iotdb" href="https://iotdb.org/my/account/details" />Give yourself a username</a>
+    </li>
+    <li>
+        <a target="iotdb" href="https://iotdb.org/playground/mqtt/bridge" />Copy your <code>API_Key</code></a>
+        (near the bottom)
+    </li>
+    <li>
+        <a target="groovy" href="https://raw.githubusercontent.com/dpjanes/iotdb-smartthings/master/smartthings.groovy" />copy this file and paste it into a text editor</a>
+    </li>
+    <li>
+        Add your IOTDB username and API Key to the <code>_settings</code> section in the text editor.
+    </li>
+    <li>
+        <a href="https://graph.api.smartthings.com/">Log into SmartThings</a>
+    </li>
+    <li>
+        Do what it takes to become a Developer if you aren&#39;t already.
+        This shouldn't be too hard.
+    </li>
+
+</ol>
+
+
+<h3 id="toc_3">Part 2: Create SmartThings App</h3>
+
+<p>Go to:</p>
+
+<p><a href="https://graph.api.smartthings.com/ide/apps">https://graph.api.smartthings.com/ide/apps</a></p>
+
+<p>Click on &quot;+ New SmartApp&quot;</p>
+
+<p><img src="https://github.com/dpjanes/iotdb-smartthings/raw/master/images/ST1.png" /></p>
+
+<h4 id="toc_4">Fill in the App Details</h3>
+
+<p>Make sure to &quot;Enable OAuth&quot; and to copy the two values produced. You&#39;ll need them them later. Press the <em>Create</em> (or <em>Update</em> maybe) button. Authorize access to as much as your comfortable with, you can always change this later from your iPhone or Android app.</p>
+
+<p><img src="https://github.com/dpjanes/iotdb-smartthings/raw/master/images/ST2.png" /></p>
+
+<h4 id="toc_5">Add the code</h3>
+
+<ul>
+<li>Press the <em>Code</em> button</li>
+<li>Copy the code from <code>smartthings.groovy</code> and paste</li>
+<li>Press <em>Save</em></li>
+<li>Press <em>Publish</em></li>
+</ul>
+
+<p><img src="https://github.com/dpjanes/iotdb-smartthings/raw/master/images/ST3.png" /></p>
+
+<h3 id="toc_6">Part 3: Authorize</h3>
+
+<p>You&#39;ll need the <code>OAuth Client ID</code> and <code>OAuth Client Secret</code>, 
+which you copied from the last major step. If you didn&#39;t, you can go back 
+and get them now.</p>
+
+<ol>
+<li>Go to this page: <a href="https://iotdb.org/playground/oauthorize/smartthings">https://iotdb.org/playground/oauthorize/smartthings</a></li>
+<li>Fill in the form</li>
+<li>Press <em>Submit</em></li>
+<li>You&#39;ll be brought to the SmartThings website, where you&#39;ll allow access to your stuff</li>
+<li>When that&#39;s done, you&#39;ll be brought back to IOTDB OAuthorize</li>
+<li>Copy the JSON data displayed </li>
+</ol>
+
+<h3>Part 4: Save it here</h4>
+<p>
+Paste the JSON data below and press "Save".
+Note that this is being saved locally in the
+file <code>.iotdb/keystore.json</code>.
+</p>
+
+<div class="col-md-6" style="margin-bottom: 40px">
+<form class="form-signin" role="form" method="post" >
+    {#
+    <input type="hidden" name="_csrf" value="{{csrfToken}}">
+    #}
+    <div class="form-group">
+        <textarea name="json" type="text" id="id_json" class="form-control" required></textarea>
+    </div>
+    <button class="btn btn-primary" type="submit">Save</button>
+</form>
+</div>
+
+{% endblock %}
