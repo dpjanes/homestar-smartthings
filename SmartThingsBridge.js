@@ -317,9 +317,9 @@ SmartThingsBridge.prototype.reachable = function () {
 SmartThingsBridge.prototype.configure = function (app) {
     var self = this;
 
-    app.use('/$', body_parser.urlencoded({     
+    app.use('/$', body_parser.urlencoded({
         extended: true
-    })); 
+    }));
     app.all('/$', function (request, response) {
         self._configure_index(request, response);
     });

@@ -15,7 +15,7 @@ progamming-like things, please ask for help from someone who is.
 Turn a SmartThings switch off
 
 	$ npm install -g homestar ## with 'sudo' if error
-	$ npm install iotdb
+	$ homestar setup
 	$ homestar install homestar-smart-things
     $ homestar configure homestar-smart-things
 	$ node
