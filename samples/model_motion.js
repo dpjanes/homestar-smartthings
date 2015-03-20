@@ -5,7 +5,7 @@
 var iotdb = require("iotdb");
 var _ = iotdb._;
 
-var ModelBinding = require('../SmartThingsMotion');
+var ModelBinding = require('../models/SmartThingsMotion');
 
 wrapper = _.bridge_wrapper(ModelBinding.binding);
 wrapper.on('thing', function(model) {

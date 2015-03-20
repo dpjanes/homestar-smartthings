@@ -277,7 +277,7 @@ SmartThingsBridge.prototype._pulled = function (rawd) {
  *  <ul>
  *  <li><code>iot:thing</code> required - a unique ID
  *  <li><code>iot:device</code> suggested if linking multiple things together
- *  <li><code>iot:name</code>
+ *  <li><code>schema:name</code>
  *  <li><code>iot:number</code>
  *  <li><code>schema:manufacturer</code>
  *  <li><code>schema:model</code>
@@ -291,7 +291,7 @@ SmartThingsBridge.prototype.meta = function () {
     return {
         "iot:thing": _.id.thing_urn.unique("SmartThings", self.native.id, self.native.type),
         "iot:device": _.id.thing_urn.unique("SmartThings", self.native.id),
-        "iot:name": self.native.label || self.initd.name || "SmartThings",
+        "schema:name": self.native.label || self.initd.name || "SmartThings",
         "iot:vendor/type": self.native.type,
     };
 };

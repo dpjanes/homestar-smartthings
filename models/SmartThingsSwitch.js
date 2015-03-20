@@ -19,7 +19,7 @@ exports.Model = iotdb.make_model('SmartThingsSwitch')
 
 exports.binding = {
     model: exports.Model,
-    bridge: require('./SmartThingsBridge').Bridge,
+    bridge: require('../SmartThingsBridge').Bridge,
     initd: {
         device: 'switch',
     },

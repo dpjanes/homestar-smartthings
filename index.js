@@ -24,13 +24,12 @@
 
 exports.Bridge = require('./SmartThingsBridge').Bridge;
 exports.bindings = [
-    require('./SmartThingsBattery').binding,
-    require('./SmartThingsBridge').binding,
-    require('./SmartThingsContact').binding,
-    require('./SmartThingsMotion').binding,
-    require('./SmartThingsSwitch').binding,
-    require('./SmartThingsTemperature').binding,
-    require('./SmartThingsThreeAxis').binding,
+    require('./models/SmartThingsBattery').binding,
+    require('./models/SmartThingsContact').binding,
+    require('./models/SmartThingsMotion').binding,
+    require('./models/SmartThingsSwitch').binding,
+    require('./models/SmartThingsTemperature').binding,
+    require('./models/SmartThingsThreeAxis').binding,
 ];
 
 exports.iotdb = require("iotdb");
