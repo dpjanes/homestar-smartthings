@@ -25,7 +25,7 @@
     "main": "index.js", 
     "name": "homestar-smartthings", 
     "peerDependencies": {
-        "iotdb": ">=0.5.5", 
+        "iotdb": ">=0.5.12", 
         "iotdb-mqtt": ">=0.0.4"
     }, 
     "private": false, 
@@ -36,5 +36,5 @@
     "scripts": {
         "test": "grunt"
     }, 
-    "version": "0.0.4"
+    "version": "0.0.5"
 }
