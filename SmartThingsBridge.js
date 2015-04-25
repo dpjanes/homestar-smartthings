@@ -38,16 +38,10 @@ var logger = bunyan.createLogger({
 });
 
 /**
- *  EXEMPLAR and INSTANCE
+ *  See {iotdb.bridge.Bridge#Bridge} for documentation.
  *  <p>
- *  No subclassing needed! The following functions are
- *  injected _after_ this is created, and before .discover and .connect
- *  <ul>
- *  <li><code>discovered</code> - tell IOTDB that we're talking to a new Thing
- *  <li><code>pulled</code> - got new data
- *  <li><code>connected</code> - this is connected to a Thing
- *  <li><code>disconnnected</code> - this has been disconnected from a Thing
- *  </ul>
+ *  @param {object|undefined} native
+ *  only used for instances, should be a device object from iotdb-smartthings
  */
 var SmartThingsBridge = function (initd, native) {
     var self = this;
@@ -62,6 +56,12 @@ var SmartThingsBridge = function (initd, native) {
     );
     self.native = native;
     self.connectd = {};
+};
+
+SmartThingsBridge.prototype = new iotdb.Bridge();
+
+SmartThingsBridge.prototype.name = function () {
+    return "SmartThingsBridge";
 };
 
 /* --- lifecycle --- */
