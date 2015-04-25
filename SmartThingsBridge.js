@@ -200,6 +200,8 @@ SmartThingsBridge.prototype.push = function (pushd) {
         return;
     }
 
+    self._validate_push(pushd);
+
     logger.info({
         method: "push",
         unique_id: self.unique_id,
