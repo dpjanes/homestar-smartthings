@@ -67,7 +67,7 @@ SmartThingsBridge.prototype.name = function () {
 /* --- lifecycle --- */
 
 /**
- *  See {iotdb.bridge.Bridge#XXX} for documentation.
+ *  See {iotdb.bridge.Bridge#discover} for documentation.
  */
 SmartThingsBridge.prototype.discover = function () {
     var self = this;
@@ -100,7 +100,7 @@ SmartThingsBridge.prototype.discover = function () {
 };
 
 /**
- *  See {iotdb.bridge.Bridge#XXX} for documentation.
+ *  See {iotdb.bridge.Bridge#connect} for documentation.
  */
 SmartThingsBridge.prototype.connect = function (connectd) {
     var self = this;
@@ -177,7 +177,7 @@ SmartThingsBridge.prototype._forget = function () {
 };
 
 /**
- *  See {iotdb.bridge.Bridge#XXX} for documentation.
+ *  See {iotdb.bridge.Bridge#disconnect} for documentation.
  */
 SmartThingsBridge.prototype.disconnect = function () {
     var self = this;
@@ -191,7 +191,7 @@ SmartThingsBridge.prototype.disconnect = function () {
 /* --- data --- */
 
 /**
- *  See {iotdb.bridge.Bridge#XXX} for documentation.
+ *  See {iotdb.bridge.Bridge#push} for documentation.
  */
 SmartThingsBridge.prototype.push = function (pushd) {
     var self = this;
@@ -218,7 +218,7 @@ SmartThingsBridge.prototype.push = function (pushd) {
 };
 
 /**
- *  See {iotdb.bridge.Bridge#XXX} for documentation.
+ *  See {iotdb.bridge.Bridge#pull} for documentation.
  */
 SmartThingsBridge.prototype.pull = function () {
     var self = this;
@@ -258,7 +258,7 @@ SmartThingsBridge.prototype._pulled = function (rawd) {
 /* --- state --- */
 
 /**
- *  See {iotdb.bridge.Bridge#XXX} for documentation.
+ *  See {iotdb.bridge.Bridge#meta} for documentation.
  */
 SmartThingsBridge.prototype.meta = function () {
     var self = this;
@@ -275,14 +275,14 @@ SmartThingsBridge.prototype.meta = function () {
 };
 
 /**
- *  See {iotdb.bridge.Bridge#XXX} for documentation.
+ *  See {iotdb.bridge.Bridge#reachable} for documentation.
  */
 SmartThingsBridge.prototype.reachable = function () {
     return this.native !== null;
 };
 
 /**
- *  See {iotdb.bridge.Bridge#XXX} for documentation.
+ *  See {iotdb.bridge.Bridge#configure} for documentation.
  */
 SmartThingsBridge.prototype.configure = function (app) {
     var self = this;
@@ -327,15 +327,6 @@ SmartThingsBridge.prototype._configure_index = function (request, response) {
         .render(template, templated);
 };
 
-
-/* --- injected: THIS CODE WILL BE REMOVED AT RUNTIME, DO NOT MODIFY  --- */
-SmartThingsBridge.prototype.discovered = function (bridge) {
-    throw new Error("SmartThingsBridge.discovered not implemented");
-};
-
-SmartThingsBridge.prototype.pulled = function (pulld) {
-    throw new Error("SmartThingsBridge.pulled not implemented");
-};
 
 /* --- internals --- */
 var __st;
