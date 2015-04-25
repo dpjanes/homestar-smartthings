@@ -21,7 +21,9 @@ module.exports = function (grunt) {
             },
             lib: {
                 src: [
-                    '*.js'
+                    '*.js',
+                    'models/*js',
+                    'samples/*js'
                 ]
             },
             test: {
@@ -44,7 +46,9 @@ module.exports = function (grunt) {
         },
         jsbeautifier: {
             files: [
-                '*.js'
+                '*.js',
+                'models/*js',
+                'samples/*js'
             ],
             options: {
                 js: {

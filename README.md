@@ -39,16 +39,6 @@ e.g.
         "open": true
     }
 
-## SmartThingsMotion
-
-<code>true</code> if there is motion.
-
-e.g. 
-
-    {
-        "motion": true
-    }
-
 ## SmartThingsSwitch
 
 e.g. 
@@ -65,6 +55,21 @@ e.g.
 
     {
         "temperature": 72
+    }
+
+
+# Models with Issues
+
+May be affected by SmartThings API changes. If you care to investigate...
+
+## SmartThingsMotion
+
+<code>true</code> if there is motion.
+
+e.g. 
+
+    {
+        "motion": true
     }
 
 ## SmartThingsThreeAxis
