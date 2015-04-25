@@ -55,7 +55,6 @@ var SmartThingsBridge = function (initd, native) {
         }
     );
     self.native = native;
-    self.connectd = {};
 };
 
 SmartThingsBridge.prototype = new iotdb.Bridge();
@@ -108,7 +107,9 @@ SmartThingsBridge.prototype.connect = function (connectd) {
         return;
     }
 
-    self.connectd = connectd;
+    self._validate_connect(connectd);
+
+    self.connectd = _.defaults(connectd, {}, self.connectd);
 
     if (self.native.value) {
         self._pulled(self.native.value);
