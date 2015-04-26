@@ -4,7 +4,7 @@
         "url": "https://github.com/dpjanes/homestar-smartthings/issues"
     }, 
     "dependencies": {
-        "body-parser": "~1.12.2", 
+        "body-parser": "~1.12.3", 
         "iotdb-smartthings": ">=0.0.6"
     }, 
     "description": "HomeStar / IOTDB Bridge for SmartThings", 
@@ -25,7 +25,7 @@
     "main": "index.js", 
     "name": "homestar-smartthings", 
     "peerDependencies": {
-        "iotdb": ">=0.5.12", 
+        "iotdb": ">=0.6.3", 
         "iotdb-mqtt": ">=0.0.4"
     }, 
     "private": false, 
@@ -36,5 +36,5 @@
     "scripts": {
         "test": "grunt"
     }, 
-    "version": "0.0.5"
+    "version": "0.0.6"
 }

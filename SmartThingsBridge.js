@@ -115,9 +115,7 @@ SmartThingsBridge.prototype.connect = function (connectd) {
         self._pulled(self.native.value);
     }
 
-    console.log("HERE:A");
     if (self.initd.mqtt && self.native.mqtt) {
-        console.log("HERE:B", self.native.mqtt);
         self._setup_mqtt();
     }
     if (self.initd.poll > 0) {
