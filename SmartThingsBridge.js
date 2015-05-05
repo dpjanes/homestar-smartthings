@@ -290,6 +290,8 @@ SmartThingsBridge.prototype.reachable = function () {
 SmartThingsBridge.prototype.configure = function (app) {
     var self = this;
 
+    self.html_root = app.html_root || "/";
+
     app.use('/$', body_parser.urlencoded({
         extended: true
     }));
@@ -308,6 +310,7 @@ SmartThingsBridge.prototype._configure_index = function (request, response) {
 
     var template = path.join(__dirname, "templates", "index.html");
     var templated = {
+        html_root: self.html_root,
         account: account_value
     };
 

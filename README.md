@@ -2,6 +2,8 @@
 
 IOTDB / HomeStar Controller for SmartThings
 
+<img src="https://github.com/dpjanes/iotdb-homestar/blob/master/docs/HomeStar.png" align="right" />
+
 See <a href="samples/">the samples</a> for details how to add to your project.
 particularly <code>model.js</code> for "standalone" and <code>iotdb.js</code>
 for use in IOTDB / HomeStar projects.
@@ -9,6 +11,15 @@ for use in IOTDB / HomeStar projects.
 **Note**: inherently this is complicated, as you'll have to add
 a new app to SmartThings. If you're not comfortable with 
 progamming-like things, please ask for help from someone who is.
+
+# Installation
+
+Install Home☆Star first. 
+See: https://github.com/dpjanes/iotdb-homestar#installation
+
+Then
+
+    $ homestar install homestar-template
 
 # Quick Start
 
