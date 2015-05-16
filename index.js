@@ -29,7 +29,7 @@ exports.bindings = [
     require('./models/SmartThingsMotion').binding,
     require('./models/SmartThingsSwitch').binding,
     require('./models/SmartThingsTemperature').binding,
-    require('./models/SmartThingsThreeAxis').binding,
+    // require('./models/SmartThingsThreeAxis').binding,
 ];
 
 exports.iotdb = require("iotdb");
