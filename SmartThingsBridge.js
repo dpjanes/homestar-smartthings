@@ -194,9 +194,10 @@ SmartThingsBridge.prototype.disconnect = function () {
 /**
  *  See {iotdb.bridge.Bridge#push} for documentation.
  */
-SmartThingsBridge.prototype.push = function (pushd) {
+SmartThingsBridge.prototype.push = function (pushd, done) {
     var self = this;
     if (!self.native) {
+        done(new Error("not connected"));
         return;
     }
 
@@ -218,6 +219,8 @@ SmartThingsBridge.prototype.push = function (pushd) {
     } else {
         self._st().device_request(self.native, pushd);
     }
+    
+    done();
 };
 
 /**
