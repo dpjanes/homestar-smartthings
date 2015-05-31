@@ -219,6 +219,9 @@ SmartThingsBridge.prototype.push = function (pushd, done) {
     } else {
         self._st().device_request(self.native, pushd);
     }
+
+    // optimistic state change
+    self.pulled(pushd);
     
     done();
 };
