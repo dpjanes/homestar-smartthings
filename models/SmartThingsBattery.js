@@ -25,7 +25,7 @@ exports.binding = {
         device: 'battery',
     },
     matchd: {
-        'iot:vendor/device': 'battery',
+        'iot:vendor.device': 'battery',
     },
     connectd: {
         data_in: function (paramd) {

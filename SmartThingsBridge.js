@@ -279,7 +279,7 @@ SmartThingsBridge.prototype.meta = function () {
         "iot:thing": _.id.thing_urn.unique("SmartThings", self.native.id, self.native.type),
         "iot:device": _.id.thing_urn.unique("SmartThings", self.native.id),
         "schema:name": self.native.label || self.initd.name || "SmartThings",
-        "iot:vendor/type": self.native.type,
+        "iot:vendor.type": self.native.type,
     };
 };
 

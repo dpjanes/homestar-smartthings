@@ -14,7 +14,7 @@ exports.binding = {
         device: 'contact',
     },
     matchd: {
-        'iot:vendor/type': 'contact',
+        'iot:vendor.type': 'contact',
     },
     connectd: {
         data_in: function (paramd) {

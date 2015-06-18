@@ -25,6 +25,6 @@ exports.binding = {
         device: 'temperature',
     },
     matchd: {
-        'iot:vendor/type': 'temperature',
+        'iot:vendor.type': 'temperature',
     },
 };

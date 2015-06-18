@@ -27,6 +27,6 @@ exports.binding = {
         device: 'threeAxis',
     },
     matchd: {
-        'iot:vendor/type': 'threeAxis',
+        'iot:vendor.type': 'threeAxis',
     },
 };
