@@ -14,7 +14,7 @@ var iotdb = require("iotdb");
 
 exports.Model = iotdb.make_model('SmartThingsSwitch')
     .facet(":switch")
-    .o("on", iotdb.boolean.on)
+    .io("on", iotdb.boolean.on)
     .make();
 
 exports.binding = {
