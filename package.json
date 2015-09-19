@@ -6,6 +6,7 @@
     "dependencies": {
         "body-parser": "~1.14.0", 
         "iotdb": ">=0.10.0", 
+        "iotdb-mqtt": "~0.0.5", 
         "iotdb-smartthings": "~0.0.7"
     }, 
     "description": "HomeStar / IOTDB Bridge for SmartThings", 
@@ -25,9 +26,6 @@
     "license": "Apache-2.0", 
     "main": "index.js", 
     "name": "homestar-smartthings", 
-    "peerDependencies": {
-        "iotdb-mqtt": "~0.0.5"
-    }, 
     "private": false, 
     "repository": {
         "type": "git", 
@@ -36,5 +34,5 @@
     "scripts": {
         "test": "grunt"
     }, 
-    "version": "0.1.8"
+    "version": "0.1.9"
 }
