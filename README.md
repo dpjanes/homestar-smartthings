@@ -19,7 +19,9 @@ See: https://github.com/dpjanes/iotdb-homestar#installation
 
 Then
 
-    $ homestar install homestar-smart-things
+    $ homestar install homestar-smartthings
+
+Note the lack of a dash between "smart" and "things".
 
 # Quick Start
 
@@ -27,8 +29,8 @@ Turn a SmartThings switch off
 
 	$ npm install -g homestar ## with 'sudo' if error
 	$ homestar setup
-	$ homestar install homestar-smart-things
-    $ homestar configure homestar-smart-things
+	$ homestar install homestar-smartthings
+    $ homestar configure homestar-smartthings
 	$ node
 	>>> iotdb = require('iotdb')
 	>>> iot = iotdb.iot()
