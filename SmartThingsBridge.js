@@ -33,7 +33,7 @@ var smartthings = require('iotdb-smartthings');
 var body_parser = require('body-parser');
 
 var logger = bunyan.createLogger({
-    name: 'homestar-smart-things',
+    name: 'homestar-smartthings',
     module: 'SmartThingsBridge',
 });
 

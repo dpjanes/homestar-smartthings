@@ -1,0 +1,11 @@
+CREATE MODEL SmartThingsTemperature WITH
+    schema:name = "smart-things-temperature",
+    iot:facet = iot-facet:sensor,
+    iot:facet = iot-facet:sensor.climate
+ATTRIBUTE temperature WITH
+    schema:name = "temperature",
+    iot:purpose = iot-purpose:sensor.temperature,
+    iot:type = iot:type.number,
+    iot:unit = iot-unit:temperature.imperial.fahrenheit,
+    iot:read = true
+;

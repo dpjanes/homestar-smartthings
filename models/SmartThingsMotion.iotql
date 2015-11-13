@@ -1,0 +1,10 @@
+CREATE MODEL SmartThingsMotion WITH
+    schema:name = "smart-things-motion",
+    iot:facet = iot-facet:sensor,
+    iot:facet = iot-facet:sensor.motion
+ATTRIBUTE motion WITH
+    schema:name = "motion",
+    iot:purpose = iot-purpose:sensor.motion,
+    iot:type = iot:type.boolean,
+    iot:read = true
+;
