@@ -13,13 +13,8 @@
 
 var iotdb = require("iotdb");
 
-exports.Model = iotdb.make_model('SmartThingsTemperature')
-    .facet(":sensor.climate")
-    .i("temperature", iotdb.sensor.number.temperature.fahrenheit)
-    .make();
-
 exports.binding = {
-    model: exports.Model,
+    model: require('./SmartThingsTemperature.json'),
     bridge: require('../SmartThingsBridge').Bridge,
     initd: {
         device: 'temperature',

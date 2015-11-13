@@ -12,13 +12,8 @@
 
 var iotdb = require("iotdb");
 
-exports.Model = iotdb.make_model('SmartThingsSwitch')
-    .facet(":switch")
-    .io("on", iotdb.boolean.on)
-    .make();
-
 exports.binding = {
-    model: exports.Model,
+    model: require('./SmartThingsSwitch.json'),
     bridge: require('../SmartThingsBridge').Bridge,
     initd: {
         device: 'switch',

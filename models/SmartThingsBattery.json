@@ -1,0 +1,47 @@
+{
+  "@context": {
+    "@base": "file:///smart-things-battery",
+    "@vocab": "file:///smart-things-battery#",
+    "iot": "https://iotdb.org/pub/iot#",
+    "schema": "http://schema.org/",
+    "iot-purpose": "https://iotdb.org/pub/iot-purpose#",
+    "iot-facet": "https://iotdb.org/pub/iot-facet#",
+    "iot:facet": {
+      "@id": "https://iotdb.org/pub/iot#facet",
+      "@type": "@id"
+    },
+    "iot:purpose": {
+      "@id": "https://iotdb.org/pub/iot#purpose",
+      "@type": "@id"
+    },
+    "iot:type": {
+      "@id": "https://iotdb.org/pub/iot#type",
+      "@type": "@id"
+    },
+    "iot-unit": "https://iotdb.org/pub/iot-unit#",
+    "iot:unit": {
+      "@id": "https://iotdb.org/pub/iot#unit",
+      "@type": "@id"
+    }
+  },
+  "@id": "",
+  "@type": "iot:Model",
+  "schema:name": "smart-things-battery",
+  "iot:facet": [
+    "iot-facet:sensor",
+    "iot-facet:sensor.battery"
+  ],
+  "iot:attribute": [
+    {
+      "@type": "iot:Attribute",
+      "@id": "#battery",
+      "schema:name": "battery",
+      "iot:purpose": "iot-purpose:sensor.battery",
+      "iot:type": "iot:type.number",
+      "iot:unit": "iot-unit:math.fraction.percent",
+      "iot:minimum": 0,
+      "iot:maximum": 100,
+      "iot:read": true
+    }
+  ]
+}

@@ -12,13 +12,8 @@
 
 var iotdb = require("iotdb");
 
-exports.Model = iotdb.make_model('SmartThingsMotion')
-    .facet(":sensor.motion")
-    .i("motion", iotdb.sensor.boolean.motion)
-    .make();
-
 exports.binding = {
-    model: exports.Model,
+    model: require('./SmartThingsMotion.json'),
     bridge: require('../SmartThingsBridge').Bridge,
     initd: {
         device: 'motion',

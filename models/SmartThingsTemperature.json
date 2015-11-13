@@ -1,0 +1,45 @@
+{
+  "@context": {
+    "@base": "file:///smart-things-temperature",
+    "@vocab": "file:///smart-things-temperature#",
+    "iot": "https://iotdb.org/pub/iot#",
+    "schema": "http://schema.org/",
+    "iot-purpose": "https://iotdb.org/pub/iot-purpose#",
+    "iot-facet": "https://iotdb.org/pub/iot-facet#",
+    "iot:facet": {
+      "@id": "https://iotdb.org/pub/iot#facet",
+      "@type": "@id"
+    },
+    "iot:purpose": {
+      "@id": "https://iotdb.org/pub/iot#purpose",
+      "@type": "@id"
+    },
+    "iot:type": {
+      "@id": "https://iotdb.org/pub/iot#type",
+      "@type": "@id"
+    },
+    "iot-unit": "https://iotdb.org/pub/iot-unit#",
+    "iot:unit": {
+      "@id": "https://iotdb.org/pub/iot#unit",
+      "@type": "@id"
+    }
+  },
+  "@id": "",
+  "@type": "iot:Model",
+  "schema:name": "smart-things-temperature",
+  "iot:facet": [
+    "iot-facet:sensor",
+    "iot-facet:sensor.climate"
+  ],
+  "iot:attribute": [
+    {
+      "@type": "iot:Attribute",
+      "@id": "#temperature",
+      "schema:name": "temperature",
+      "iot:purpose": "iot-purpose:sensor.temperature",
+      "iot:type": "iot:type.number",
+      "iot:unit": "iot-unit:temperature.imperial.fahrenheit",
+      "iot:read": true
+    }
+  ]
+}

@@ -13,13 +13,8 @@
 
 var iotdb = require("iotdb");
 
-exports.Model = iotdb.make_model('SmartThingsBattery')
-    .facet(":sensor.battery")
-    .i("battery", iotdb.sensor.percent.battery)
-    .make();
-
 exports.binding = {
-    model: exports.Model,
+    model: require('./SmartThingsBattery.json'),
     bridge: require('../SmartThingsBridge').Bridge,
     initd: {
         device: 'battery',

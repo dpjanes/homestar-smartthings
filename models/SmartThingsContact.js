@@ -2,13 +2,8 @@
 
 var iotdb = require("iotdb");
 
-exports.Model = iotdb.make_model('SmartThingsContact')
-    .facet(":sensor.contact")
-    .i("open", iotdb.sensor.boolean.open)
-    .make();
-
 exports.binding = {
-    model: exports.Model,
+    model: require('./SmartThingsContact.json'),
     bridge: require('../SmartThingsBridge').Bridge,
     initd: {
         device: 'contact',
