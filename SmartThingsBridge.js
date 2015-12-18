@@ -37,6 +37,9 @@ var logger = bunyan.createLogger({
     module: 'SmartThingsBridge',
 });
 
+var ACCOUNT_KEY = "/bridges/SmartThingsBridge/initd";
+
+
 /**
  *  See {iotdb.bridge.Bridge#Bridge} for documentation.
  *  <p>
@@ -47,7 +50,7 @@ var SmartThingsBridge = function (initd, native) {
     var self = this;
 
     self.initd = _.defaults(initd,
-        iotdb.keystore().get("bridges/SmartThingsBridge/initd"), {
+        iotdb.keystore().get(ACCOUNT_KEY), {
             mqtt: true,
             poll: 5 * 60,
             name: null,
@@ -311,8 +314,7 @@ SmartThingsBridge.prototype.configure = function (app) {
 SmartThingsBridge.prototype._configure_index = function (request, response) {
     var self = this;
 
-    var account_key = "/bridges/SmartThings/access";
-    var account_value = iotdb.keystore().get(account_key);
+    var account_value = iotdb.keystore().get(ACCOUNT_KEY);
 
     var template = path.join(__dirname, "templates", "index.html");
     var templated = {
@@ -324,7 +326,7 @@ SmartThingsBridge.prototype._configure_index = function (request, response) {
         if (request.body && request.body.json) {
             try {
                 account_value = JSON.parse(request.body.json);
-                iotdb.keystore().save(account_key, account_value);
+                iotdb.keystore().save(ACCOUNT_KEY, account_value);
                 templated.success = "SmartThings configuration saved - enjoy!";
             } catch (x) {
                 templated.error = "" + x;
@@ -347,7 +349,7 @@ SmartThingsBridge.prototype._st = function () {
     var self = this;
 
     if (__st === undefined) {
-        var cfgd = iotdb.keystore().get("bridges/SmartThingsBridge");
+        var cfgd = iotdb.keystore().get(ACCOUNT_KEY);
         if (!cfgd) {
             logger.error({
                 method: "_st",

@@ -34,7 +34,8 @@ echo "=================="
         LICENSE \
         homestar.json package.json \
         SmartThingsBridge.js index.js \
-        models/Smart*.js |
+        templates/index.html \
+        models/Smart*.js models/Smart*.json |
     ( cd "${NPM_DST}" && tar xvf - )
 
     ## cp dist/*.* "${NPM_DST}" || exit 1
