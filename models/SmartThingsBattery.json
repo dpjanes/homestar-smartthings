@@ -28,20 +28,23 @@
   "@type": "iot:Model",
   "schema:name": "smart-things-battery",
   "iot:facet": [
-    "iot-facet:sensor",
-    "iot-facet:sensor.battery"
+    "iot-facet:power",
+    "iot-facet:power.battery"
   ],
   "iot:attribute": [
     {
       "@type": "iot:Attribute",
       "@id": "#battery",
       "schema:name": "battery",
-      "iot:purpose": "iot-purpose:sensor.battery",
+      "iot:purpose": "iot-purpose:battery",
       "iot:type": "iot:type.number",
       "iot:unit": "iot-unit:math.fraction.percent",
       "iot:minimum": 0,
       "iot:maximum": 100,
-      "iot:read": true
+      "iot:sensor": true,
+      "iot:read": true,
+      "iot:write": false,
+      "iot:actuator": false
     }
   ]
 }

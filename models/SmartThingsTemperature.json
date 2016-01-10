@@ -36,10 +36,13 @@
       "@type": "iot:Attribute",
       "@id": "#temperature",
       "schema:name": "temperature",
-      "iot:purpose": "iot-purpose:sensor.temperature",
+      "iot:purpose": "iot-purpose:temperature",
       "iot:type": "iot:type.number",
       "iot:unit": "iot-unit:temperature.imperial.fahrenheit",
-      "iot:read": true
+      "iot:sensor": true,
+      "iot:read": true,
+      "iot:write": false,
+      "iot:actuator": false
     }
   ]
 }

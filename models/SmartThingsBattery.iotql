@@ -1,13 +1,14 @@
 CREATE MODEL SmartThingsBattery WITH
     schema:name = "smart-things-battery",
-    iot:facet = iot-facet:sensor,
-    iot:facet = iot-facet:sensor.battery
+    iot:facet = iot-facet:power,
+    iot:facet = iot-facet:power.battery
 ATTRIBUTE battery WITH
     schema:name = "battery",
-    iot:purpose = iot-purpose:sensor.battery,
+    iot:purpose = iot-purpose:battery,
     iot:type = iot:type.number,
     iot:unit = iot-unit:math.fraction.percent,
     iot:minimum = 0,
     iot:maximum = 100,
+    iot:sensor = true,
     iot:read = true
 ;

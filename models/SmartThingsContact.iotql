@@ -4,7 +4,8 @@ CREATE MODEL SmartThingsContact WITH
     iot:facet = iot-facet:sensor.contact
 ATTRIBUTE open WITH
     schema:name = "open",
-    iot:purpose = iot-purpose:sensor.open,
+    iot:purpose = iot-purpose:open,
     iot:type = iot:type.boolean,
+    iot:sensor = true,
     iot:read = true
 ;

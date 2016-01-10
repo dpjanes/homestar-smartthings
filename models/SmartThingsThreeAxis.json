@@ -34,9 +34,9 @@
       "iot:purpose": "iot-purpose:plane.x",
       "iot:type": "iot:type.number",
       "iot:vector": "x/y/z",
+      "iot:sensor": true,
       "iot:read": true,
       "iot:write": false,
-      "iot:sensor": true,
       "iot:actuator": false
     },
     {
@@ -46,9 +46,9 @@
       "iot:purpose": "iot-purpose:plane.y",
       "iot:vector": "x/y/z",
       "iot:type": "iot:type.number",
+      "iot:sensor": true,
       "iot:read": true,
       "iot:write": false,
-      "iot:sensor": true,
       "iot:actuator": false
     },
     {
@@ -58,9 +58,9 @@
       "iot:purpose": "iot-purpose:plane.z",
       "iot:vector": "x/y/z",
       "iot:type": "iot:type.number",
+      "iot:sensor": true,
       "iot:read": true,
       "iot:write": false,
-      "iot:sensor": true,
       "iot:actuator": false
     }
   ]

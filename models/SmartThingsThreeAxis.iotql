@@ -7,6 +7,7 @@ ATTRIBUTE x WITH
     iot:purpose = iot-purpose:plane.x,
     iot:type = iot:type.number,
     iot:vector = "x/y/z",
+    iot:sensor = true,
     iot:read = true,
     iot:write = false
 ATTRIBUTE y WITH
@@ -14,6 +15,7 @@ ATTRIBUTE y WITH
     iot:purpose = iot-purpose:plane.y,
     iot:vector = "x/y/z",
     iot:type = iot:type.number,
+    iot:sensor = true,
     iot:read = true,
     iot:write = false
 ATTRIBUTE z WITH
@@ -21,6 +23,7 @@ ATTRIBUTE z WITH
     iot:purpose = iot-purpose:plane.z,
     iot:vector = "x/y/z",
     iot:type = iot:type.number,
+    iot:sensor = true,
     iot:read = true,
     iot:write = false
 ;
