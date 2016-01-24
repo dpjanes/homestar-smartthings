@@ -24,7 +24,6 @@
 
 var iotdb = require('iotdb');
 var _ = iotdb._;
-var bunyan = iotdb.bunyan;
 
 var path = require('path');
 var url = require('url');
@@ -32,7 +31,7 @@ var smartthings = require('iotdb-smartthings');
 
 var body_parser = require('body-parser');
 
-var logger = bunyan.createLogger({
+var logger = iotdb.logger({
     name: 'homestar-smartthings',
     module: 'SmartThingsBridge',
 });
