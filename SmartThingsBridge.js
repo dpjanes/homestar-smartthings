@@ -143,7 +143,7 @@ SmartThingsBridge.prototype._setup_mqtt = function () {
 
     var mqtt;
     try {
-        mqtt = iotdb.module("iotdb-mqtt");
+        mqtt = require("iotdb-mqtt");
     } catch (x) {
         logger.error({
             method: "_setup_mqtt",
