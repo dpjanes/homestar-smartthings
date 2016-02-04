@@ -5,9 +5,9 @@
     }, 
     "dependencies": {
         "body-parser": "~1.14.2", 
-        "iotdb": ">=0.11.0", 
+        "iotdb": ">=0.12.0", 
         "iotdb-mqtt": "~0.0.6", 
-        "iotdb-smartthings": "~0.0.7"
+        "iotdb-smartthings": "~0.0.8"
     }, 
     "description": "HomeStar / IOTDB Bridge for SmartThings", 
     "devDependencies": {
@@ -34,5 +34,5 @@
     "scripts": {
         "test": "grunt"
     }, 
-    "version": "0.1.19"
+    "version": "0.1.20"
 }
