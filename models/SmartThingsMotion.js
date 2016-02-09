@@ -19,6 +19,6 @@ exports.binding = {
         device: 'motion',
     },
     matchd: {
-        'iot:vendor.device': 'motion',
+        'iot:vendor.type': 'motion',
     },
 };
