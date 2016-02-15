@@ -1,11 +1,11 @@
 /*
- *  SmartThingsMotion.js
+ *  SmartThingsPresence.js
  *
  *  David Janes
  *  IOTDB
  *  2014-03-06
  *
- *  SmartThings Motion Detector
+ *  SmartThings Presence Detector
  */
 
 "use strict";
@@ -13,12 +13,12 @@
 var iotdb = require("iotdb");
 
 exports.binding = {
-    model: require('./smart-things-motion.json'),
+    model: require('./smart-things-presence.json'),
     bridge: require('../SmartThingsBridge').Bridge,
     initd: {
-        device: 'motion',
+        device: 'presence',
     },
     matchd: {
-        'iot:vendor.type': 'motion',
+        'iot:vendor.type': 'presence',
     },
 };

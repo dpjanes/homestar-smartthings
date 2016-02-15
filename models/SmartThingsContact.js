@@ -3,7 +3,7 @@
 var iotdb = require("iotdb");
 
 exports.binding = {
-    model: require('./SmartThingsContact.json'),
+    model: require('./smart-things-contact.json'),
     bridge: require('../SmartThingsBridge').Bridge,
     initd: {
         device: 'contact',

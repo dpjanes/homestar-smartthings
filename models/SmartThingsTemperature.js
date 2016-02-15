@@ -14,7 +14,7 @@
 var iotdb = require("iotdb");
 
 exports.binding = {
-    model: require('./SmartThingsTemperature.json'),
+    model: require('./smart-things-temperature.json'),
     bridge: require('../SmartThingsBridge').Bridge,
     initd: {
         device: 'temperature',

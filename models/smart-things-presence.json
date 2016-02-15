@@ -1,0 +1,42 @@
+{
+  "@context": {
+    "@base": "file:///smart-things-presence",
+    "@vocab": "file:///smart-things-presence#",
+    "iot": "https://iotdb.org/pub/iot#",
+    "schema": "http://schema.org/",
+    "iot-purpose": "https://iotdb.org/pub/iot-purpose#",
+    "iot-facet": "https://iotdb.org/pub/iot-facet#",
+    "iot:facet": {
+      "@id": "https://iotdb.org/pub/iot#facet",
+      "@type": "@id"
+    },
+    "iot:purpose": {
+      "@id": "https://iotdb.org/pub/iot#purpose",
+      "@type": "@id"
+    },
+    "iot:type": {
+      "@id": "https://iotdb.org/pub/iot#type",
+      "@type": "@id"
+    }
+  },
+  "@id": "",
+  "@type": "iot:Model",
+  "schema:name": "smart-things-presence",
+  "iot:facet": [
+    "iot-facet:sensor",
+    "iot-facet:sensor.presence"
+  ],
+  "iot:attribute": [
+    {
+      "@type": "iot:Attribute",
+      "@id": "#presence",
+      "schema:name": "presence",
+      "iot:purpose": "iot-purpose:presence",
+      "iot:type": "iot:type.boolean",
+      "iot:read": true,
+      "iot:write": false,
+      "iot:sensor": true,
+      "iot:actuator": false
+    }
+  ]
+}

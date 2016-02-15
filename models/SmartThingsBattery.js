@@ -14,7 +14,7 @@
 var iotdb = require("iotdb");
 
 exports.binding = {
-    model: require('./SmartThingsBattery.json'),
+    model: require('./smart-things-battery.json'),
     bridge: require('../SmartThingsBridge').Bridge,
     initd: {
         device: 'battery',

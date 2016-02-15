@@ -13,7 +13,7 @@
 var iotdb = require("iotdb");
 
 exports.binding = {
-    model: require('./SmartThingsSwitch.json'),
+    model: require('./smart-things-switch.json'),
     bridge: require('../SmartThingsBridge').Bridge,
     initd: {
         device: 'switch',
