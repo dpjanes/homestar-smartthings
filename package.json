@@ -4,8 +4,8 @@
         "url": "https://github.com/dpjanes/homestar-smartthings/issues"
     }, 
     "dependencies": {
-        "body-parser": "~1.14.2", 
-        "iotdb": ">=0.12.0", 
+        "body-parser": "~1.15.0", 
+        "iotdb": ">=0.13.0", 
         "iotdb-mqtt": "~0.0.6", 
         "iotdb-smartthings": "~0.0.8"
     }, 
@@ -34,5 +34,5 @@
     "scripts": {
         "test": "grunt"
     }, 
-    "version": "0.1.23"
+    "version": "0.1.24"
 }
