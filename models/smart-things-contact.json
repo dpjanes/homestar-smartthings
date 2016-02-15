@@ -26,6 +26,7 @@
     "iot-facet:sensor",
     "iot-facet:sensor.contact"
   ],
+  "iot:model": "https://raw.githubusercontent.com/dpjanes/homestar-smartthings/master/models/smart-things-contact.json",
   "iot:attribute": [
     {
       "@type": "iot:Attribute",

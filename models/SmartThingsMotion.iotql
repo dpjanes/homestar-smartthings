@@ -1,7 +1,8 @@
 CREATE MODEL SmartThingsMotion WITH
     schema:name = "smart-things-motion",
     iot:facet = iot-facet:sensor,
-    iot:facet = iot-facet:sensor.motion
+    iot:facet = iot-facet:sensor.motion,
+    iot:model = "https://raw.githubusercontent.com/dpjanes/homestar-smartthings/master/models/smart-things-motion.json"
 ATTRIBUTE motion WITH
     schema:name = "motion",
     iot:purpose = iot-purpose:motion,

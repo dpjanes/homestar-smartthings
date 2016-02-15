@@ -31,6 +31,7 @@
     "iot-facet:sensor",
     "iot-facet:sensor.climate"
   ],
+  "iot:model": "https://raw.githubusercontent.com/dpjanes/homestar-smartthings/master/models/smart-things-temperature.json",
   "iot:attribute": [
     {
       "@type": "iot:Attribute",

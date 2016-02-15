@@ -26,6 +26,7 @@
     "iot-facet:sensor",
     "iot-facet:sensor.presence"
   ],
+  "iot:model": "https://raw.githubusercontent.com/dpjanes/homestar-smartthings/master/models/smart-things-presence.json",
   "iot:attribute": [
     {
       "@type": "iot:Attribute",

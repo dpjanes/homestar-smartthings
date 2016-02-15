@@ -31,6 +31,7 @@
     "iot-facet:power",
     "iot-facet:power.battery"
   ],
+  "iot:model": "https://raw.githubusercontent.com/dpjanes/homestar-smartthings/master/models/smart-things-battery.json",
   "iot:attribute": [
     {
       "@type": "iot:Attribute",

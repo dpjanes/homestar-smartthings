@@ -26,6 +26,7 @@
     "iot-facet:sensor",
     "iot-facet:sensor.spatial"
   ],
+  "iot:model": "https://raw.githubusercontent.com/dpjanes/homestar-smartthings/master/models/smart-things-three-axis.json",
   "iot:attribute": [
     {
       "@type": "iot:Attribute",

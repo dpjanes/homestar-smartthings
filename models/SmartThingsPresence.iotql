@@ -1,7 +1,8 @@
 CREATE MODEL SmartThingsPresence WITH
     schema:name = "smart-things-presence",
     iot:facet = iot-facet:sensor,
-    iot:facet = iot-facet:sensor.presence
+    iot:facet = iot-facet:sensor.presence,
+    iot:model = "https://raw.githubusercontent.com/dpjanes/homestar-smartthings/master/models/smart-things-presence.json"
 ATTRIBUTE presence WITH
     schema:name = "presence",
     iot:purpose = iot-purpose:presence,

@@ -1,7 +1,8 @@
 CREATE MODEL SmartThingsBattery WITH
     schema:name = "smart-things-battery",
     iot:facet = iot-facet:power,
-    iot:facet = iot-facet:power.battery
+    iot:facet = iot-facet:power.battery,
+    iot:model = "https://raw.githubusercontent.com/dpjanes/homestar-smartthings/master/models/smart-things-battery.json"
 ATTRIBUTE battery WITH
     schema:name = "battery",
     iot:purpose = iot-purpose:battery,

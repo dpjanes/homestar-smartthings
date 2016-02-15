@@ -1,7 +1,8 @@
 CREATE MODEL SmartThingsThreeAxis WITH
     schema:name = "smart-things-three-axis",
     iot:facet = iot-facet:sensor,
-    iot:facet = iot-facet:sensor.spatial
+    iot:facet = iot-facet:sensor.spatial,
+    iot:model = "https://raw.githubusercontent.com/dpjanes/homestar-smartthings/master/models/smart-things-three-axis.json"
 ATTRIBUTE x WITH
     schema:name = "x",
     iot:purpose = iot-purpose:plane.x,

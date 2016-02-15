@@ -25,6 +25,7 @@
   "iot:facet": [
     "iot-facet:switch"
   ],
+  "iot:model": "https://raw.githubusercontent.com/dpjanes/homestar-smartthings/master/models/smart-things-switch.json",
   "iot:attribute": [
     {
       "@type": "iot:Attribute",

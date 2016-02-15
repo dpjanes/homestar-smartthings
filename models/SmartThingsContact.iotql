@@ -1,7 +1,8 @@
 CREATE MODEL SmartThingsContact WITH
     schema:name = "smart-things-contact",
     iot:facet = iot-facet:sensor,
-    iot:facet = iot-facet:sensor.contact
+    iot:facet = iot-facet:sensor.contact,
+    iot:model = "https://raw.githubusercontent.com/dpjanes/homestar-smartthings/master/models/smart-things-contact.json"
 ATTRIBUTE open WITH
     schema:name = "open",
     iot:purpose = iot-purpose:open,

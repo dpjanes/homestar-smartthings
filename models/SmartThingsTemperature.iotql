@@ -1,7 +1,8 @@
 CREATE MODEL SmartThingsTemperature WITH
     schema:name = "smart-things-temperature",
     iot:facet = iot-facet:sensor,
-    iot:facet = iot-facet:sensor.climate
+    iot:facet = iot-facet:sensor.climate,
+    iot:model = "https://raw.githubusercontent.com/dpjanes/homestar-smartthings/master/models/smart-things-temperature.json"
 ATTRIBUTE temperature WITH
     schema:name = "temperature",
     iot:purpose = iot-purpose:temperature,
