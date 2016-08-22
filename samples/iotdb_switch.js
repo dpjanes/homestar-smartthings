@@ -7,8 +7,8 @@ var _ = iotdb._;
 
 var iot = iotdb.iot();
 var things = iot.connect("SmartThingsSwitch");
-things.on("state", function (thing) {
-    console.log("+ state\n ", thing.thing_id(), "\n ", thing.state("istate"));
+things.on("istate", function (thing) {
+    console.log("+", "istate\n ", thing.thing_id(), "\n ", thing.state("istate"));
 });
 things.on("meta", function (thing) {
     console.log("+ meta\n ", thing.thing_id(), thing.state("meta"));
