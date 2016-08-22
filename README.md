@@ -3,21 +3,25 @@
 
 <img src="https://raw.githubusercontent.com/dpjanes/iotdb-homestar/master/docs/HomeStar.png" align="right" />
 
+
+# About
+
 This [Module](https://homestar.io/about/things) allows you to control your SmartThings devices from IOTDB and Home☆Star.
 **Note** that this inherently is complicated. 
 You'll have to add a new app to SmartThings.
 If you're not comfortable with programming-like things, please ask for help from someone who is.
 
-# Installation
+# Installation and Configuration
 
-[Install Home☆Star first](https://homestar.io/about/install).
+* [Read this first](https://github.com/dpjanes/node-iotdb/blob/master/docs/install.md)
+* [Read about installing Home☆Star](https://github.com/dpjanes/node-iotdb/blob/master/docs/homestar.md) 
 
-Then:
-
-    $ homestar install homestar-smartthings
+    $ npm install -g homestar    ## may require sudo
+    $ homestar setup
+    $ npm install homestar-smartthings
     $ homestar configure homestar-smartthings
 
-# Quick Start
+# Use
 
 Turn a SmartThings switch off
 
