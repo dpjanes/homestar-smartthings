@@ -9,6 +9,8 @@
 PACKAGE=homestar-smartthings
 DIST_ROOT=/var/tmp/.dist.$$
 
+export COPYFILE_DISABLE=1 
+
 if [ ! -d "$DIST_ROOT" ]
 then
     mkdir "$DIST_ROOT"
@@ -35,7 +37,7 @@ echo "=================="
         homestar.json package.json \
         SmartThingsBridge.js index.js \
         templates/index.html \
-        models/Smart*.js models/Smart*.json |
+        models/Smart*.js models/smart*.json |
     ( cd "${NPM_DST}" && tar xvf - && npm publish ) || exit 1
     git commit -m "new release" package.json || exit 1
     git push || exit 1

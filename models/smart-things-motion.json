@@ -3,13 +3,7 @@
     "@base": "file:///smart-things-motion",
     "@vocab": "file:///smart-things-motion#",
     "iot": "https://iotdb.org/pub/iot#",
-    "schema": "http://schema.org/",
     "iot-purpose": "https://iotdb.org/pub/iot-purpose#",
-    "iot-facet": "https://iotdb.org/pub/iot-facet#",
-    "iot:facet": {
-      "@id": "https://iotdb.org/pub/iot#facet",
-      "@type": "@id"
-    },
     "iot:purpose": {
       "@id": "https://iotdb.org/pub/iot#purpose",
       "@type": "@id"
@@ -17,27 +11,34 @@
     "iot:type": {
       "@id": "https://iotdb.org/pub/iot#type",
       "@type": "@id"
+    },
+    "schema": "http://schema.org/",
+    "iot-facet": "https://iotdb.org/pub/iot-facet#",
+    "iot:facet": {
+      "@id": "https://iotdb.org/pub/iot#facet",
+      "@type": "@id"
     }
   },
   "@id": "",
   "@type": "iot:Model",
-  "schema:name": "smart-things-motion",
+  "iot:attribute": [
+    {
+      "@id": "#motion",
+      "@type": "iot:Attribute",
+      "iot:actuator": true,
+      "iot:purpose": "iot-purpose:motion",
+      "iot:read": true,
+      "iot:sensor": true,
+      "iot:type": "iot:type.boolean",
+      "iot:write": true,
+      "schema:name": "motion"
+    }
+  ],
   "iot:facet": [
     "iot-facet:sensor",
     "iot-facet:sensor.motion"
   ],
   "iot:model": "https://raw.githubusercontent.com/dpjanes/homestar-smartthings/master/models/smart-things-motion.json",
-  "iot:attribute": [
-    {
-      "@type": "iot:Attribute",
-      "@id": "#motion",
-      "schema:name": "motion",
-      "iot:purpose": "iot-purpose:motion",
-      "iot:type": "iot:type.boolean",
-      "iot:read": true,
-      "iot:write": false,
-      "iot:sensor": true,
-      "iot:actuator": false
-    }
-  ]
+  "iot:model-id": "smart-things-motion",
+  "schema:name": "smart-things-motion"
 }

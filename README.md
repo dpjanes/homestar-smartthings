@@ -1,6 +1,5 @@
 # homestar-smart-things
-
-IOTDB / Home☆Star Controller for SmartThings 
+[IOTDB](https://github.com/dpjanes/node-iotdb) Bridge for SmartThings
 
 <img src="https://raw.githubusercontent.com/dpjanes/iotdb-homestar/master/docs/HomeStar.png" align="right" />
 
@@ -20,23 +19,11 @@ Then:
 
 # Quick Start
 
-## Home☆Star
-
-If you have correctly setup and configured your SmartThings app, all you need do is:
-
-	$ homestar runner browser=1
-	
-You may have to refresh the page, as it may take a little while for your Things to be discovered.
-
-## IOTDB
-
 Turn a SmartThings switch off
 
-    $ homestar configure homestar-smartthings
-	$ node
-	>>> iotdb = require('iotdb')
-	>>> things = iotdb.connect("SmartThingsSwitch")
-	>>> things.set(":on", false)
+	const iotdb = require('iotdb')
+    iotdb.use("homestar-smartthings")
+	iotdb.connect("SmartThingsSwitch").set(":on", false)
 
 [There are many more samples available](https://github.com/dpjanes/homestar-smartthings/tree/master/samples). 
 Look for the files called <code>iotdb_*.js</code>.

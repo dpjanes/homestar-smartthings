@@ -3,13 +3,7 @@
     "@base": "file:///smart-things-switch",
     "@vocab": "file:///smart-things-switch#",
     "iot": "https://iotdb.org/pub/iot#",
-    "schema": "http://schema.org/",
     "iot-purpose": "https://iotdb.org/pub/iot-purpose#",
-    "iot-facet": "https://iotdb.org/pub/iot-facet#",
-    "iot:facet": {
-      "@id": "https://iotdb.org/pub/iot#facet",
-      "@type": "@id"
-    },
     "iot:purpose": {
       "@id": "https://iotdb.org/pub/iot#purpose",
       "@type": "@id"
@@ -17,26 +11,34 @@
     "iot:type": {
       "@id": "https://iotdb.org/pub/iot#type",
       "@type": "@id"
+    },
+    "schema": "http://schema.org/",
+    "iot-facet": "https://iotdb.org/pub/iot-facet#",
+    "iot:facet": {
+      "@id": "https://iotdb.org/pub/iot#facet",
+      "@type": "@id"
     }
   },
   "@id": "",
   "@type": "iot:Model",
-  "schema:name": "smart-things-switch",
-  "iot:facet": [
-    "iot-facet:switch"
-  ],
-  "iot:model": "https://raw.githubusercontent.com/dpjanes/homestar-smartthings/master/models/smart-things-switch.json",
   "iot:attribute": [
     {
-      "@type": "iot:Attribute",
       "@id": "#on",
-      "schema:name": "on",
+      "@type": "iot:Attribute",
+      "iot:actuator": true,
       "iot:purpose": "iot-purpose:on",
-      "iot:type": "iot:type.boolean",
       "iot:read": true,
-      "iot:write": true,
       "iot:sensor": true,
-      "iot:actuator": true
+      "iot:type": "iot:type.boolean",
+      "iot:write": true,
+      "schema:name": "on"
     }
-  ]
+  ],
+  "iot:facet": [
+    "iot-facet:switch",
+    "iot-facet:plug"
+  ],
+  "iot:model": "https://raw.githubusercontent.com/dpjanes/homestar-smartthings/master/models/smart-things-switch.json",
+  "iot:model-id": "smart-things-switch",
+  "schema:name": "smart-things-switch"
 }

@@ -3,13 +3,7 @@
     "@base": "file:///smart-things-contact",
     "@vocab": "file:///smart-things-contact#",
     "iot": "https://iotdb.org/pub/iot#",
-    "schema": "http://schema.org/",
     "iot-purpose": "https://iotdb.org/pub/iot-purpose#",
-    "iot-facet": "https://iotdb.org/pub/iot-facet#",
-    "iot:facet": {
-      "@id": "https://iotdb.org/pub/iot#facet",
-      "@type": "@id"
-    },
     "iot:purpose": {
       "@id": "https://iotdb.org/pub/iot#purpose",
       "@type": "@id"
@@ -17,27 +11,34 @@
     "iot:type": {
       "@id": "https://iotdb.org/pub/iot#type",
       "@type": "@id"
+    },
+    "schema": "http://schema.org/",
+    "iot-facet": "https://iotdb.org/pub/iot-facet#",
+    "iot:facet": {
+      "@id": "https://iotdb.org/pub/iot#facet",
+      "@type": "@id"
     }
   },
   "@id": "",
   "@type": "iot:Model",
-  "schema:name": "smart-things-contact",
+  "iot:attribute": [
+    {
+      "@id": "#open",
+      "@type": "iot:Attribute",
+      "iot:actuator": true,
+      "iot:purpose": "iot-purpose:open",
+      "iot:read": true,
+      "iot:sensor": true,
+      "iot:type": "iot:type.boolean",
+      "iot:write": true,
+      "schema:name": "open"
+    }
+  ],
   "iot:facet": [
     "iot-facet:sensor",
     "iot-facet:sensor.contact"
   ],
   "iot:model": "https://raw.githubusercontent.com/dpjanes/homestar-smartthings/master/models/smart-things-contact.json",
-  "iot:attribute": [
-    {
-      "@type": "iot:Attribute",
-      "@id": "#open",
-      "schema:name": "open",
-      "iot:purpose": "iot-purpose:open",
-      "iot:type": "iot:type.boolean",
-      "iot:sensor": true,
-      "iot:read": true,
-      "iot:write": false,
-      "iot:actuator": false
-    }
-  ]
+  "iot:model-id": "smart-things-contact",
+  "schema:name": "smart-things-contact"
 }

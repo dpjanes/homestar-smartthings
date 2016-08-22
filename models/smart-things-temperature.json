@@ -3,13 +3,7 @@
     "@base": "file:///smart-things-temperature",
     "@vocab": "file:///smart-things-temperature#",
     "iot": "https://iotdb.org/pub/iot#",
-    "schema": "http://schema.org/",
     "iot-purpose": "https://iotdb.org/pub/iot-purpose#",
-    "iot-facet": "https://iotdb.org/pub/iot-facet#",
-    "iot:facet": {
-      "@id": "https://iotdb.org/pub/iot#facet",
-      "@type": "@id"
-    },
     "iot:purpose": {
       "@id": "https://iotdb.org/pub/iot#purpose",
       "@type": "@id"
@@ -22,28 +16,35 @@
     "iot:unit": {
       "@id": "https://iotdb.org/pub/iot#unit",
       "@type": "@id"
+    },
+    "schema": "http://schema.org/",
+    "iot-facet": "https://iotdb.org/pub/iot-facet#",
+    "iot:facet": {
+      "@id": "https://iotdb.org/pub/iot#facet",
+      "@type": "@id"
     }
   },
   "@id": "",
   "@type": "iot:Model",
-  "schema:name": "smart-things-temperature",
+  "iot:attribute": [
+    {
+      "@id": "#temperature",
+      "@type": "iot:Attribute",
+      "iot:actuator": true,
+      "iot:purpose": "iot-purpose:temperature",
+      "iot:read": true,
+      "iot:sensor": true,
+      "iot:type": "iot:type.number",
+      "iot:unit": "iot-unit:temperature.imperial.fahrenheit",
+      "iot:write": true,
+      "schema:name": "temperature"
+    }
+  ],
   "iot:facet": [
     "iot-facet:sensor",
     "iot-facet:sensor.climate"
   ],
   "iot:model": "https://raw.githubusercontent.com/dpjanes/homestar-smartthings/master/models/smart-things-temperature.json",
-  "iot:attribute": [
-    {
-      "@type": "iot:Attribute",
-      "@id": "#temperature",
-      "schema:name": "temperature",
-      "iot:purpose": "iot-purpose:temperature",
-      "iot:type": "iot:type.number",
-      "iot:unit": "iot-unit:temperature.imperial.fahrenheit",
-      "iot:sensor": true,
-      "iot:read": true,
-      "iot:write": false,
-      "iot:actuator": false
-    }
-  ]
+  "iot:model-id": "smart-things-temperature",
+  "schema:name": "smart-things-temperature"
 }
