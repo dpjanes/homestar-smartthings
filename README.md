@@ -6,10 +6,12 @@
 
 # About
 
-This [Module](https://homestar.io/about/things) allows you to control your SmartThings devices from IOTDB and Home☆Star.
+This Bridge allows you to control your SmartThings devices from IOTDB and Home☆Star.
 **Note** that this inherently is complicated. 
 You'll have to add a new app to SmartThings.
 If you're not comfortable with programming-like things, please ask for help from someone who is.
+
+* [Read about Bridges](https://github.com/dpjanes/node-iotdb/blob/master/docs/bridges.md)
 
 # Installation and Configuration
 
