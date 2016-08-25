@@ -21,7 +21,6 @@ If you're not comfortable with programming-like things, please ask for help from
 Then:
 
     $ npm install -g homestar    ## may require sudo
-    $ homestar setup
     $ npm install homestar-smartthings
     $ homestar configure homestar-smartthings
 
