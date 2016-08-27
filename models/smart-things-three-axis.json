@@ -25,7 +25,7 @@
     {
       "@id": "#x",
       "@type": "iot:Attribute",
-      "iot:actuator": true,
+      "iot:actuator": false,
       "iot:purpose": "iot-purpose:plane.x",
       "iot:read": true,
       "iot:sensor": true,
@@ -37,7 +37,7 @@
     {
       "@id": "#y",
       "@type": "iot:Attribute",
-      "iot:actuator": true,
+      "iot:actuator": false,
       "iot:purpose": "iot-purpose:plane.y",
       "iot:read": true,
       "iot:sensor": true,
@@ -49,7 +49,7 @@
     {
       "@id": "#z",
       "@type": "iot:Attribute",
-      "iot:actuator": true,
+      "iot:actuator": false,
       "iot:purpose": "iot-purpose:plane.z",
       "iot:read": true,
       "iot:sensor": true,

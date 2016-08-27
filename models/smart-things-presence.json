@@ -30,7 +30,7 @@
       "iot:read": true,
       "iot:sensor": true,
       "iot:type": "iot:type.boolean",
-      "iot:write": true,
+      "iot:write": false,
       "schema:name": "presence"
     }
   ],
