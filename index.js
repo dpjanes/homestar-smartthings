@@ -24,11 +24,11 @@
 
 exports.Bridge = require('./SmartThingsBridge').Bridge;
 exports.bindings = [
-    // require('./models/SmartThingsBattery').binding,
-    // require('./models/SmartThingsContact').binding,
-    // require('./models/SmartThingsMotion').binding,
-    // require('./models/SmartThingsPresence').binding,
+    require('./models/SmartThingsBattery').binding,
+    require('./models/SmartThingsContact').binding,
+    require('./models/SmartThingsMotion').binding,
+    require('./models/SmartThingsPresence').binding,
     require('./models/SmartThingsSwitch').binding,
-    // require('./models/SmartThingsTemperature').binding,
-    // require('./models/SmartThingsThreeAxis').binding,
+    require('./models/SmartThingsTemperature').binding,
+    require('./models/SmartThingsThreeAxis').binding,
 ];
