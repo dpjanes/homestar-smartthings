@@ -61,10 +61,6 @@ var SmartThingsBridge = function (initd, native) {
 
 SmartThingsBridge.prototype = new iotdb.Bridge();
 
-SmartThingsBridge.prototype.name = function () {
-    return "SmartThingsBridge";
-};
-
 /* --- lifecycle --- */
 
 /**

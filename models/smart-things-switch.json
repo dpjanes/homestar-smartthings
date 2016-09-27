@@ -35,8 +35,8 @@
     }
   ],
   "iot:facet": [
-    "iot-facet:switch",
-    "iot-facet:plug"
+    "iot-facet:power.switch",
+    "iot-facet:power.plug"
   ],
   "iot:model": "https://raw.githubusercontent.com/dpjanes/homestar-smartthings/master/models/smart-things-switch.json",
   "iot:model-id": "smart-things-switch",
