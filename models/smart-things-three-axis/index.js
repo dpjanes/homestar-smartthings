@@ -12,8 +12,8 @@
 "use strict";
 
 exports.binding = {
-    model: require('./smart-things-three-axis.json'),
-    bridge: require('../SmartThingsBridge').Bridge,
+    model: require('./model.json'),
+    bridge: require('../../SmartThingsBridge').Bridge,
     initd: {
         device: 'threeAxis',
     },

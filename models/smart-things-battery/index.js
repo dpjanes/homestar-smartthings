@@ -11,11 +11,9 @@
 
 "use strict";
 
-var iotdb = require("iotdb");
-
 exports.binding = {
-    model: require('./smart-things-battery.json'),
-    bridge: require('../SmartThingsBridge').Bridge,
+    model: require('./model.json'),
+    bridge: require('../../SmartThingsBridge').Bridge,
     initd: {
         device: 'battery',
     },

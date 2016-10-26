@@ -1,10 +1,19 @@
+/*
+ *  SmartThingsContact.js
+ *
+ *  David Janes
+ *  IOTDB
+ *  2014-08-17
+ *  "Indonesian Independence Day"
+ *
+ *  SmartThings Contact Switch
+ */
+
 "use strict";
 
-var iotdb = require("iotdb");
-
 exports.binding = {
-    model: require('./smart-things-contact.json'),
-    bridge: require('../SmartThingsBridge').Bridge,
+    model: require('./model.json'),
+    bridge: require('../../SmartThingsBridge').Bridge,
     initd: {
         device: 'contact',
     },

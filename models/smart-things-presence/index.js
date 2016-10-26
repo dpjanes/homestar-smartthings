@@ -10,11 +10,9 @@
 
 "use strict";
 
-var iotdb = require("iotdb");
-
 exports.binding = {
-    model: require('./smart-things-presence.json'),
-    bridge: require('../SmartThingsBridge').Bridge,
+    model: require('./model.json'),
+    bridge: require('../../SmartThingsBridge').Bridge,
     initd: {
         device: 'presence',
     },
