@@ -32,12 +32,15 @@ echo "=================="
     update-package --increment-version --package "$PACKAGE" --homestar || exit 1
 
     tar cf - \
+        --exclude "xx*" \
+        --exclude "yy*" \
         README.md \
         LICENSE \
         homestar.json package.json \
         SmartThingsBridge.js index.js \
         templates/index.html \
-        models/Smart*.js models/smart*.json |
+        models/*/*.js models/*/*.json \
+        |
     ( cd "${NPM_DST}" && tar xvf - && npm publish ) || exit 1
     git commit -m "new release" package.json || exit 1
     git push || exit 1
